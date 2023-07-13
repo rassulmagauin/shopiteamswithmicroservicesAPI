@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option go_package = "protos/currency";
+service Currency {
+    rpc GetRate(RateRequest) returns (RateResponse);
+    rpc SubscribeRates(stream RateRequest) returns (stream RateResponse);
+}
+
+message RateRequest {
+    Currencies Base = 1;
+    Currencies Destination = 2;
+}
+
+message RateResponse {
+    Currencies Base = 1;
+    Currencies Destination = 2;
+    double Rate = 3;
+}
+
+enum Currencies {
+    EUR = 0;
+    USD = 1;
+    GBP = 2;
+    JPY = 3;
+    RUB = 4;
+    AUD = 5;
+    CAD = 6;
+    CHF = 7;
+    CNY = 8;
+    HKD = 9;
+    NZD = 10;
+    SEK = 11;
+    KRW = 12;
+    SGD = 13;
+    NOK = 14;
+    MXN = 15;
+    INR = 16;
+    RON = 17;
+    IDR = 18;
+    BRL = 19;
+    ZAR = 20;
+    PHP = 21;
+    CZK = 22;
+    DKK = 23;
+    HUF = 24;
+    ILS = 25;
+    PLN = 26;
+    THB = 27;
+    TRY = 28;
+    MYR = 29;
+
+}

@@ -1,0 +1,38 @@
+basePath: /
+consumes:
+    - application/json
+definitions:
+    Product:
+        x-go-package: github.com/rassulmagauin/workplace/data
+host: localhost
+info:
+    description: |-
+        the purpose of this application is to provide an application
+        that is using plain go code to define an API
+
+        This should demonstrate all the possible comment annotations
+        that are available to turn go code into a fully compliant swagger 2.0 spec
+    termsOfService: there are no TOS at this moment, use at your own risk we take no responsibility
+    title: Producs API.
+    version: 1.0.0
+paths:
+    /products:
+        get:
+            description: Returns list of products
+            operationId: listProducts
+            responses:
+                "200":
+                    $ref: '#/responses/data.Product'
+            tags:
+                - products
+produces:
+    - application/json
+responses:
+    productsResponse:
+        description: A list of Products
+        schema:
+            items: {}
+            type: array
+schemes:
+    - http
+swagger: "2.0"
